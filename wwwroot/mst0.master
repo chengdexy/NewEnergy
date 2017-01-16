@@ -1,0 +1,94 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="mst0.master.cs" Inherits="mst0" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <%-- 母版页布局大概为3段式,头/主体/脚,主体分左右两部分,左边为导航,右边为内容(导航位置非绝对) --%>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>承德市新能源汽车推广应用补贴资金在线填报系统</title>
+    <link rel="stylesheet" href="css/pintuer.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="script/jquery.min.js"></script>
+    <script src="script/pintuer.js"></script>
+    <script src="script/respond.js"></script>
+    <script src="script/admin.js"></script>
+    <script src="script/uploadPreview.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        
+    </style>
+    <script type="text/javascript">
+			if(navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE6.0" || navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE7.0" || navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE8.0" || navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE9.0")
+			{
+			alert("您的浏览器版本过低，请下载IE9以上版本");
+			}
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="True"></asp:ScriptManager>
+     <!-- logo -->
+	<div class="lefter">
+	    <div class="logo">
+		 <img src="images/logo1.png" width="100" height="60"/>
+	    </div>
+	</div>
+     <!--./logo -->
+        <div  class="righter nav-navicon" id="admin-nav">
+				   <div class="mainer">
+				       <p style="font-size:36px;">承德市新能源汽车推广应用补贴资金在线填报系统</p>
+				   </div>
+        </div>
+        <div class="admin-bread">
+					    <span>
+						     <asp:Button ID="btnLogout" Style="border:0px;background:none;color:#fff;margin-right:20px;line-height:3rem;font-size:16px;" runat="server" Text="退出登录" OnClick="btnLogout_Click" CausesValidation="False" UseSubmitBehavior="False" />
+					    </span>
+					    <ul class="bread">
+						     <li style="font-size:16px;">欢迎您，admin！</li>
+					    </ul>
+			</div>
+      <div class="admin-navbar">
+		    
+		    <ul class="nav nav-inline admin-nav">
+					<li class="active">
+					      <asp:BulletedList ID="blMenu" runat="server" DataSourceID="adsMenu" DataTextField="m0_c0_text" DataValueField="m0_url" DisplayMode="HyperLink"></asp:BulletedList>
+		            <asp:AccessDataSource ID="adsMenu" runat="server" DataFile="~/App_Data/Data.mdb" SelectCommand="SELECT * FROM [tMenu]"></asp:AccessDataSource>
+					</li>
+			
+		    </ul>
+		</div>
+      
+      
+<!-- 页面主体开始 -->
+        <div class="admin">
+		<div class="line-big">
+		<div class="xm12 homelist">
+			<ul>
+			  <li><asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder></li>
+		    </ul>
+		</div>
+	    </div>
+	   
+		
+	     
+     </div>
+ <!-- 页面主体结束-->
+  <!-- 页面footer开始 -->
+ <div id="div_mst_foot" class="footer">
+		   <p>承德市工业和信息化局版权所有 ©2016</p> 
+       <p>联系电话：2050039 &nbsp;&nbsp;通讯地址：双桥区南园路9号</p>	
+       <p style="font-size:10px;">建议使用IE9以上版本浏览器；屏幕分辨率1366以上</p>
+</div>
+  <!-- 页面footer结束 -->
+
+    </form>
+    <script>
+       $(".admin").width($(document).width()-300);
+       $(".admin").height($(document).height()-280);
+    </script>
+</body>
+</html>
